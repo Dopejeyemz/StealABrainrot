@@ -207,15 +207,15 @@ local function _disableAntiRagdoll()
 end
 
 me.CharacterAdded:Connect(function()
-	if _G.EgoAntiRagdollOn then
+	if _G.AntiRagdollOn then
 		task.wait(0.5); _disableAntiRagdoll(); _enableAntiRagdoll()
 	end
 	task.wait(1)
-	if _G.EgoSpinBotOn then killSpin(); startSpin() end
-	if _G.EgoJumpOn then
+	if _G.SpinBotOn then killSpin(); startSpin() end
+	if _G.JumpOn then
 		local char = me.Character
 		local hum = char and char:FindFirstChildOfClass("Humanoid")
-		if hum then hum.JumpPower = _G.EgoJumpVal end
+		if hum then hum.JumpPower = _G.JumpVal end
 	end
 end)
 
@@ -269,12 +269,12 @@ local function flyToFront(tHRP)
 end
 
 local function showBatRing()
-	if _G.EgoBatRing and _G.EgoBatRing.Parent then return end
+	if _G.BatRing and _G.BatRing.Parent then return end
 	local char = me.Character; if not char then return end
 	local hrp = char:FindFirstChild("HumanoidRootPart"); if not hrp then return end
 	local d = (_G.EgoBatRadius or 20) * 2
 	local r = Instance.new("Part")
-	r.Name = "EgoBatRing"; r.Size = Vector3.new(d, 0.2, d)
+	r.Name = "BatRing"; r.Size = Vector3.new(d, 0.2, d)
 	r.Anchored = true; r.CanCollide = false
 	r.Material = Enum.Material.Neon
 	r.Color = Color3.fromRGB(0, 100, 255); r.Transparency = 0.3
@@ -284,16 +284,16 @@ local function showBatRing()
 	_G.EgoBatRing = r
 end
 local function hideBatRing()
-	if _G.EgoBatRing then _G.EgoBatRing:Destroy(); _G.EgoBatRing = nil end
+	if _G.BatRing then _G.BatRing:Destroy(); _G.BatRing = nil end
 end
 
-if not _G.EgoBatLoopStarted then
-	_G.EgoBatLoopStarted = true
+if not _G.BatLoopStarted then
+	_G.BatLoopStarted = true
 	RS.Heartbeat:Connect(function()
-		if not _G.EgoBatEnabled then return end
+		if not _G.BatEnabled then return end
 		local char = me.Character
 		local hrp = char and char:FindFirstChild("HumanoidRootPart")
-		if _G.EgoBatRing and _G.EgoBatRing.Parent and hrp then
+		if _G.EgoBatRing and _G.BatRing.Parent and hrp then
 			_G.EgoBatRing.CFrame = CFrame.new(hrp.Position.X, hrp.Position.Y - 2.5, hrp.Position.Z)
 			_G.EgoBatRing.Size = Vector3.new((_G.EgoBatRadius or 20) * 2, 0.2, (_G.EgoBatRadius or 20) * 2)
 		end
@@ -311,19 +311,19 @@ local espConns = {}
 local function makeESP(plr)
 	if plr == me or not plr.Character then return end
 	local char = plr.Character
-	if char:FindFirstChild("EgoESP_Box") then char.EgoESP_Box:Destroy() end
-	if char:FindFirstChild("EgoESP_Name") then char.EgoESP_Name:Destroy() end
+	if char:FindFirstChild("ESP_Box") then char.ESP_Box:Destroy() end
+	if char:FindFirstChild("ESP_Name") then char.ESP_Name:Destroy() end
 	local hrp = char:FindFirstChild("HumanoidRootPart")
 	local head = char:FindFirstChild("Head")
 	if not (hrp and head) then return end
 	local box = Instance.new("BoxHandleAdornment")
-	box.Name = "EgoESP_Box"; box.Adornee = hrp
+	box.Name = "ESP_Box"; box.Adornee = hrp
 	box.Size = Vector3.new(4, 6, 2)
 	box.Color3 = Color3.fromRGB(60, 135, 255)
 	box.Transparency = 0.6; box.ZIndex = 10; box.AlwaysOnTop = true
 	box.Parent = char
 	local bb = Instance.new("BillboardGui")
-	bb.Name = "EgoESP_Name"; bb.Adornee = head
+	bb.Name = "ESP_Name"; bb.Adornee = head
 	bb.Size = UDim2.new(0, 200, 0, 50)
 	bb.StudsOffset = Vector3.new(0, 3, 0); bb.AlwaysOnTop = true; bb.Parent = char
 	local lbl = Instance.new("TextLabel")
@@ -336,8 +336,8 @@ local function makeESP(plr)
 end
 local function removeESP(plr)
 	if not plr.Character then return end
-	local b = plr.Character:FindFirstChild("EgoESP_Box")
-	local n = plr.Character:FindFirstChild("EgoESP_Name")
+	local b = plr.Character:FindFirstChild("ESP_Box")
+	local n = plr.Character:FindFirstChild("ESP_Name")
 	if b then b:Destroy() end
 	if n then n:Destroy() end
 end
@@ -346,14 +346,14 @@ local function enableESP()
 		if plr ~= me then
 			if plr.Character then makeESP(plr) end
 			table.insert(espConns, plr.CharacterAdded:Connect(function()
-				task.wait(0.1); if _G.EgoESPOn then makeESP(plr) end
+				task.wait(0.1); if _G.ESPOn then makeESP(plr) end
 			end))
 		end
 	end
 	table.insert(espConns, Players.PlayerAdded:Connect(function(plr)
 		if plr == me then return end
 		table.insert(espConns, plr.CharacterAdded:Connect(function()
-			task.wait(0.1); if _G.EgoESPOn then makeESP(plr) end
+			task.wait(0.1); if _G.ESPOn then makeESP(plr) end
 		end))
 	end))
 end
@@ -363,7 +363,7 @@ local function disableESP()
 	espConns = {}
 end
 me.CharacterAdded:Connect(function()
-	task.wait(0.1); if _G.EgoESPOn then enableESP() end
+	task.wait(0.1); if _G.ESPOn then enableESP() end
 end)
 if _G.EgoESPOn then enableESP() end
 
