@@ -45,7 +45,7 @@ local autoStealEnabled = false
 local stealConnection = nil
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "LuminaHubGUI"
+screenGui.Name = "KawaifuHubGUI"
 screenGui.ResetOnSpawn = false
 screenGui.DisplayOrder = 999
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -120,7 +120,7 @@ local titleLabel = Instance.new("TextLabel")
 titleLabel.Size = UDim2.new(1, 0, 0, 30)
 titleLabel.Position = UDim2.new(0, 0, 0, 4)
 titleLabel.BackgroundTransparency = 1
-titleLabel.Text = "Lumina Hub"
+titleLabel.Text = "Kawaifu Hub"
 titleLabel.TextColor3 = COL_WHITE
 titleLabel.TextSize = 22
 titleLabel.Font = Enum.Font.GothamBold
@@ -129,12 +129,12 @@ titleLabel.ZIndex = 2
 titleLabel.Parent = hudFrame
 addGradient(titleLabel)
 
--- Текст discord.gg/hubscripts (серый, без перелива)
+-- Текст https://discord.gg/dFEPdhP73 (серый, без перелива)
 local madeByLabel = Instance.new("TextLabel")
 madeByLabel.Size = UDim2.new(1, 0, 0, 18)
 madeByLabel.Position = UDim2.new(0, 0, 0, 30)
 madeByLabel.BackgroundTransparency = 1
-madeByLabel.Text = "discord.gg/hubscripts"
+madeByLabel.Text = "https://discord.gg/dFEPdhP73"
 madeByLabel.TextColor3 = COL_DIM
 madeByLabel.TextScaled = false
 madeByLabel.TextSize = 13
@@ -231,7 +231,7 @@ local panelTitle = Instance.new("TextLabel")
 panelTitle.Size = UDim2.new(1, -20, 0, 30)
 panelTitle.Position = UDim2.new(0, 10, 0, 4)
 panelTitle.BackgroundTransparency = 1
-panelTitle.Text = "Lumina Hub"
+panelTitle.Text = "Kawaifu Hub"
 panelTitle.TextColor3 = COL_WHITE
 panelTitle.TextSize = 20
 panelTitle.Font = Enum.Font.GothamBold
@@ -245,7 +245,7 @@ local panelSubtitle = Instance.new("TextLabel")
 panelSubtitle.Size = UDim2.new(1, -20, 0, 14)
 panelSubtitle.Position = UDim2.new(0, 10, 0, 30)
 panelSubtitle.BackgroundTransparency = 1
-panelSubtitle.Text = "discord.gg/hubscripts"
+panelSubtitle.Text = "https://discord.gg/dFEPdhP73"
 panelSubtitle.TextColor3 = COL_DIM
 panelSubtitle.TextSize = 12
 panelSubtitle.Font = Enum.Font.GothamBold
@@ -1297,7 +1297,7 @@ local spActions = {
         TeleportService:Teleport(game.PlaceId, player)
     end,
     ["Kick Self"] = function()
-        player:Kick("Lumina Hub")
+        player:Kick("Kawaifu Hub")
     end,
     ["Force Reset"] = function()
         local char = player.Character
