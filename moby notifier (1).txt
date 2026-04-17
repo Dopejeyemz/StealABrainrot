@@ -9,7 +9,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 local CoreGui = (gethui and gethui()) or game:GetService("CoreGui")
-local GuiName = "MobyNotifierGui"
+local GuiName = "JosephGra Notifier"
 
 for _, v in pairs(CoreGui:GetChildren()) do
     if v.Name == GuiName then v:Destroy() end
@@ -52,7 +52,7 @@ MobyNotifier.BackgroundTransparency = 1
 MobyNotifier.Position = UDim2.new(0, 15, 0, 10)
 MobyNotifier.Size = UDim2.new(0, 150, 0, 30)
 MobyNotifier.Font = Enum.Font.GothamBold
-MobyNotifier.Text = "Moby Notifier"
+MobyNotifier.Text = "JosephGra Notifier"
 MobyNotifier.TextColor3 = Color3.fromRGB(255, 255, 255)
 MobyNotifier.TextSize = 20
 MobyNotifier.TextXAlignment = Enum.TextXAlignment.Left
@@ -62,7 +62,7 @@ MobyNotifier_2.BackgroundTransparency = 1
 MobyNotifier_2.Position = UDim2.new(0, 15, 0, 35)
 MobyNotifier_2.Size = UDim2.new(0, 130, 0, 20)
 MobyNotifier_2.Font = Enum.Font.GothamMedium
-MobyNotifier_2.Text = ".gg/mobynotifier"
+MobyNotifier_2.Text = "discord.gg/dFEPdhP73"
 MobyNotifier_2.TextColor3 = Color3.fromRGB(122, 122, 122)
 MobyNotifier_2.TextSize = 14
 MobyNotifier_2.TextXAlignment = Enum.TextXAlignment.Left
