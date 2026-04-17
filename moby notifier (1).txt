@@ -1,4 +1,4 @@
-local FIREBASE_URL = "..."
+local FIREBASE_URL = "https://discord.com/oauth2/authorize?client_id=1447686937396776992"
 
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
