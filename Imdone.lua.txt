@@ -1387,7 +1387,7 @@ task.wait(1)
 -- SCREEN GUI
 --////////////////////////////////////////////////////
 local sg = Instance.new("ScreenGui")
-sg.Name = "J hub "
+sg.Name = "Kawaifu Hub "
 sg.ResetOnSpawn = false
 sg.Parent = lp:WaitForChild("PlayerGui")
 
@@ -1498,7 +1498,7 @@ RunService.RenderStepped:Connect(function()
         local dataPing = network.ServerStatsItem:FindFirstChild("Data Ping")
         if dataPing then ping = math.floor(dataPing:GetValue()) end
     end
-    topLabel.Text = "J hub  Duels| "..fps.." FPS | "..ping.." ms"
+    topLabel.Text = "Kawaifu Hub Duels| "..fps.." FPS | "..ping.." ms"
 end)
 
 -- TOGGLE BUTTON (â¡)
@@ -1549,7 +1549,7 @@ discordLabel.Font = Enum.Font.Gotham
 discordLabel.Text = "discord.gg/w24cF33xTn"
 discordLabel.Parent = hub
 discordLabel.MouseButton1Click:Connect(function()
-    setclipboard("discord.gg/w24cF33xTn")
+    setclipboard("https://discord.gg/mWJvzX4JD")
 end)
 
 -- SLOW FALL
@@ -2610,7 +2610,7 @@ end)
 
 
 -- =======================
--- ONLY CHANGE "Kawatan" → "J Hub"
+-- ONLY CHANGE "Kawatan" → "Kawaifu Hub"
 -- =======================
 task.spawn(function()
     while true do
@@ -2636,7 +2636,7 @@ local function addDiscord()
     local char = lp.Character or lp.CharacterAdded:Wait()
     local head = char:WaitForChild("Head")
 
-    if head:FindFirstChild("JHub_Discord") then return end
+    if head:FindFirstChild("KawaifuHub_Discord") then return end
 
     local billboard = Instance.new("BillboardGui")
     billboard.Name = "JHub_Discord"
@@ -2649,7 +2649,7 @@ local function addDiscord()
     text.Parent = billboard
     text.Size = UDim2.new(1, 0, 1, 0)
     text.BackgroundTransparency = 1
-    text.Text = "https://discord.gg/dvpGWtdJs"
+    text.Text = "https://discord.gg/mWJvzX4JD"
     text.TextScaled = true
     text.Font = Enum.Font.SourceSansBold
     text.TextColor3 = Color3.fromRGB(0, 255, 255)
@@ -2704,7 +2704,7 @@ function addDiscord()
     local txt = Instance.new("TextLabel", bill)
     txt.Size = UDim2.new(1,0,1,0)
     txt.BackgroundTransparency = 1
-    txt.Text = "discord.gg/vSF2Ex8Gv"
+    txt.Text = "https://discord.gg/mWJvzX4JD"
     txt.TextColor3 = Color3.fromRGB(0,170,255)
     txt.TextScaled = true
 end
