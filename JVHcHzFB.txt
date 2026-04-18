@@ -47,7 +47,7 @@ do
             end
         end
     end
-    print("areo hub loaded!")
+    print("Kawaifu hub loaded!")
 end
 
 local Services = {
@@ -108,7 +108,7 @@ end
 local IS_MOBILE = isMobile()
 
 
-local FileName = "AreoPublic_v1.json" 
+local FileName = "KawaifuPublic_v1.json" 
 local DefaultConfig = {
     Positions = {
         AdminPanel = {X = 0.1859375, Y = 0.5767123526556385}, 
@@ -603,7 +603,7 @@ local function ShowNotification(title, text)
     if existing then existing:Destroy() end
 
     local sg = Instance.new("ScreenGui", PlayerGui)
-    sg.Name = "AreoNotif"; sg.ResetOnSpawn = false
+    sg.Name = "KaWaifuNotif"; sg.ResetOnSpawn = false
 
     local f = Instance.new("Frame", sg)
     f.Size = UDim2.new(0, 290, 0, 54)
